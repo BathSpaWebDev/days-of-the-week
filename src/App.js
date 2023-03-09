@@ -1,25 +1,41 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Layout from "./components/layout/main";
+import Monday from './components/pages/monday';
+import Tuesday from './components/pages/tuesday';
+import Wednesday from './components/pages/wednesday';
+import Thursday from './components/pages/thursday';
+import Friday from './components/pages/friday';
 import './App.css';
 
-function App() {
+export default function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Monday />} />
+          <Route path="tuesday" element={<Tuesday />} />
+          <Route path="wednesday" element={<Wednesday />} />
+          <Route path="thursday" element={<Thursday />} />
+          <Route path="friday" element={<Friday />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
+
+    
   );
 }
 
-export default App;
+/*
+
+Create a multipage app containing a layout component.
+
+and three page components:
+
+homepage, about, contact page
+
+Use w3 schools as a guide
+*/
+
+
+// /& create a component called Pizza that accepts 2 props: name, and ingredients.
